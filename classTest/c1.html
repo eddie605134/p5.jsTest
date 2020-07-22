@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+  <script>
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      background(100);
+    }
+
+    function draw() {
+
+      background(100, 50);
+      rectMode(CENTER)
+      //fill(mouseX, mouseY, frameCount);
+      //print(frameCount);
+      /*if (mouseIsPressed) {
+        fill(0, 0, 0);
+        rect(mouseX, mouseY, 100, 100);
+      } else {
+        ellipse(mouseX, mouseY, 100, 100);
+      }*/
+
+      translate(width / 2, height / 2);
+      translate(p5.Vector.fromAngle(millis() / 1000, 40));
+      rect(0, 0, 20, 20);
+    }
+
+    /*var showEllipse=false;
+    var showRect=false;
+    function setup() {
+      createCanvas(400, 400);
+    }
+    function draw() {
+      background(220);
+      if (mouseIsPressed){
+        ellipse(50, height/2, 50, 50);
+      }
+      if(showEllipse){
+        ellipse(200, height/2, 50, 50);
+      }
+      if(showRect){
+        rectMode(CENTER);
+       rect(350,height/2,50,50);
+      }
+    }
+    function mouseClicked(){
+      showEllipse=!showEllipse;
+    }
+
+    function mousePressed(){
+      showRect=true;
+    }
+    function mouseReleased(){
+      showRect=false;
+    }*/
+
+    function drag(obj) {
+
+      obj.onmousedown = (e) => {
+
+        //讓元素在按時e.clientX - element.offsetTop
+        var ol = e.clientX - obj.offsetLeft
+        var ot = e.clientY - obj.offsetTop
+
+        document.onmousemove = (e) => {
+          var x = e.clientX - ol
+          var y = e.clientY - ot
+
+          obj.style.top = y + "px"
+          obj.style.left = x + "px"
+        }
+
+        document.onmouseup = () => {
+          document.onmousemove = null
+          //當滑鼠離開，取消黏著
+          document.onmouseup = null
+          //再取消自身，否則只要在document，onmouseup都會觸發
+
+        }
+      }
+    }
+
+    /*var x=200;
+    var y=200
+    var r=50;
+    function setup() {
+      createCanvas(400, 400);
+    }
+
+    function draw() {
+      background(220);
+      if(mouseIsPressed&&dist(mouseX,mouseY,x,y)<r){
+        x=mouseX;
+        y=mouseY;
+      }
+      ellipse(x,y,r,r);
+    }*/
+
+
+  </script>
+</body>
+
+</html>

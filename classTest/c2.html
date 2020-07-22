@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+<script>
+
+    function setup() {
+        createCanvas(windowWidth, windowHeight);
+        //background(100);
+    }
+
+
+    function draw() {
+        rectMode(CENTER)
+        const countf = frameCount
+        //background(100,50);
+        background(255,10);
+        //ellipse(mouseX, mouseY, 20, 20);
+        noFill();
+        //ellipse(width/2, height/2, 20, 20);
+        //rect(50+countf*5%width,50+countf*5%height,100,100)
+        strokeWeight(2)
+        stroke(0)
+        //rect(width/2,height/2,100+(countf*5),100+(mouseX*5))
+        fill(0)
+        textSize(50)
+        text(int(mouseX)+','+int(mouseY),50,50)
+        fill(mouseX,mouseY,50)
+        triangle(10+mouseX/0.95,10+mouseY/0.8,143,599,524,404)
+
+    }
+
+</script>
+
+</body>
+</html>

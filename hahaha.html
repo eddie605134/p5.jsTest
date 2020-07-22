@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+        }
+        .content{
+            margin: 300px;
+            width: 900px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tab_g{
+            display: flex;
+        }
+        .tab{
+            width: 300px;
+            text-align: center;
+            border: 1px black solid;
+        }
+        .text_g{
+            border: 1px black solid;
+        }
+        .tab.on{
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="tab_g">
+            <div class="tab">AT</div>
+            <div class="tab">BT</div>
+            <div class="tab">CT</div>
+        </div>
+        <div class="text_g">
+            <div class="text">
+                ALorem ipsum dolor, sit amet consectetur adipisicing elit. Provident alias neque quas nemo, quidem sit voluptas omnis aperiam, architecto repellat commodi illum aliquid aut, nihil similique adipisci voluptatibus eum! Reprehenderit.
+            </div>
+            <div class="text">
+                BLorem ipsum dolor sit, amet consectetur adipisicing elit. Porro voluptatem et voluptatum quia. Totam iste eaque perspiciatis ea numquam eligendi quisquam quaerat atque beatae, doloremque earum officiis inventore. Quia, ab!
+            </div>
+            <div class="text">
+                CLorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eveniet ad doloribus laboriosam unde, temporibus ipsa minima odit minus possimus architecto placeat, nesciunt deleniti ex cumque explicabo modi repellat quas.
+            </div>
+        </div>
+    </div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js'></script>
+<script>
+    let t1 = document.querySelectorAll('.tab')
+
+    //t1[0].textContent = 'D'
+
+    for(var i=0;i<t1.length;i++){
+        const t = t1[i]
+        t1[i].onclick = function(e){
+            removeClass()
+            e.target.classList.add('on')
+            //console.log(t1[i])
+            console.log(t)
+        }
+    }
+
+    function removeClass() {
+        for (var i = 0; i < t1.length; i++) {
+            const btn = t1[i]//抓值
+            console.log(btn)
+            btn.classList.remove('on')//抓到的值清除
+        }
+    }
+
+
+    let name = "Peter"
+    let obj = true
+    let int = 13
+
+    let data = {
+        name,obj,int
+    }
+
+    let hello = ({name}) => console.log("hello"+name)
+
+
+
+    axios.get("http://localhost:3000/user").then((res)=>{
+        console.log(res)
+    }).catch((err)=>{
+        console.log(err)
+    })
+
+
+</script>
+
+</body>
+</html>
